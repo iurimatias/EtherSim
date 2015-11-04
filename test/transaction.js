@@ -3,7 +3,7 @@ var Block = require('../lib/block.js');
 var Transaction = require('../lib/transaction.js');
 var assert = require('assert');
 
-describe('fastrpc.transaction', function() {
+describe('ethersim.transaction', function() {
   var blockchain = new Blockchain();
   blockchain.addAccount({secretKey: '3cd7232cd6f3fc66a57a6bedc1a8ed6c228fff0a327e169c2bcc5e869ed49511'});
   var blockNumber = blockchain.blockNumber;
