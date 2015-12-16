@@ -268,12 +268,12 @@ describe('fastrpc.manager', function() {
         })
       });
 
-      it("should transfer funds"); //, function(done) {
-      //  web3.eth.getBalance(web3.eth.accounts[1], function(error, results) {
-      //    assert.deepEqual(results.toNumber(), 12345);
-      //    done();
-      //  });
-      //});
+      it("should transfer funds", function(done) {
+        web3.eth.getBalance(web3.eth.accounts[1], function(error, results) {
+          assert.deepEqual(results.toNumber(), 12345);
+          done();
+        });
+      });
 
     });
 
