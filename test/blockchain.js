@@ -19,11 +19,11 @@ describe('fastrpc.blockchain', function() {
     blockchain.addBlock();
 
     it("increase block number", function() {
-      assert.deepEqual(blockchain.blockNumber, 2);
+      assert.deepEqual(blockchain.blockNumber(), 1);
     });
 
     it("add block", function() {
-      assert.deepEqual(blockchain.blocks.length, 1);
+      assert.deepEqual(blockchain.blocks.length, 2);
     });
 
   });
