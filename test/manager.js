@@ -272,28 +272,25 @@ describe('fastrpc.manager', function() {
     describe("sending funds", function() {
       var transactionHash = "";
 
-      beforeEach(function(done) {
-        var account = web3.eth.accounts[0];
-        //manager.blockchain.addAccount({balance: '00000'});
-
-        transactionHash = web3.eth.sendTransaction({
-          from: account,
-          to: web3.eth.accounts[1],
-          value: 12345
-        }, function(error, results) {
-          done();
-        })
-      });
-
       it("should transfer funds", function(done) {
-        web3.eth.getBalance(web3.eth.accounts[1], function(error, results) {
-          assert.deepEqual(results.toNumber(), 12345);
-          done();
+        var account = web3.eth.accounts[0];
+        manager.ethersim_setBalance(account, 100000000, function () {
+          web3.eth.getBalance(account, function (err, res) {
+            web3.eth.sendTransaction({
+              from: account,
+              to: web3.eth.accounts[1],
+              value: 12345
+            }, function(error, result) {
+              transactionHash = result;
+              web3.eth.getBalance(web3.eth.accounts[1], function(error, results) {
+                assert.deepEqual(results.toNumber(), 12345);
+                done();
+              });
+            })
+          });
         });
       });
-
     });
-
   });
 
   describe("contract creation", function() {
@@ -306,26 +303,29 @@ describe('fastrpc.manager', function() {
     });
 
     it("should create contract correct", function(done) {
-      var supply = 10000;
-      var tokenContract = web3.eth.contract(tokenCompiled.token.info.abiDefinition);
-      var token = tokenContract.new(supply, { from:web3.eth.accounts[0], data:tokenCompiled.token.code, gas: 1000000 }, function(e, contract) {
-        if(!e) {
-          if(!contract.address) {
-            console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
-          } else {
-            console.log("Contract mined! Address: " + contract.address);
-            console.log(contract);
+      var account = web3.eth.accounts[0];
+
+      manager.ethersim_setBalance(account, 100000000, function () {
+        var supply = 10000;
+        var tokenContract = web3.eth.contract(tokenCompiled.token.info.abiDefinition);
+        var token = tokenContract.new(supply, { from:account, data:tokenCompiled.token.code, gas: 1000000 }, function(e, contract) {
+          if(!e) {
+            if(!contract.address) {
+              console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
+            } else {
+              console.log("Contract mined! Address: " + contract.address);
+              console.log(contract);
+            }
           }
-        }
-        else {
-          console.log("ERROR CREATING CONTRACT");
-          console.log(arguments);
-          throw new Error("ERROR CREATING CONTRACT");
-        }
-        done();
+          else {
+            console.log("ERROR CREATING CONTRACT");
+            console.log(arguments);
+            throw new Error("ERROR CREATING CONTRACT");
+          }
+          done();
+        });
       });
     });
-
   });
 
   //  describe("eth_call", function() {
