@@ -76,6 +76,20 @@ describe('fastrpc.manager', function() {
     });
   });
 
+  describe("ethersim_setBalance", function() {
+    it("should set the account balance", function(done) {
+      var targetBalance = 5;
+      var account = web3.eth.accounts[0];
+      var checkBalance = function () {
+        web3.eth.getBalance(account, function(err, result) {
+          assert.deepEqual(result.toNumber(), targetBalance);
+          done();
+        });
+      };
+      manager.ethersim_setBalance(account, targetBalance, checkBalance);
+    });
+  });
+
   describe("eth_getStorageAt", function() {
     it("should return storage at a specific position"); //, function() {
     //  var state = web3.eth.getStorageAt("0x123");
