@@ -4,18 +4,21 @@ var web3 = require('web3');
 var assert = require('assert');
 
 describe('fastrpc.manager', function() {
-  var manager = new Manager();
-  web3.setProvider(new Provider(manager));
-  manager.initialize();
-  var block, contractAddress;
+  const TEST_ACCOUNTS = 10;
+  var block, contractAddress, manager;
+
+  beforeEach(function(done) {
+    manager = new Manager();
+    web3.setProvider(new Provider(manager));
+    manager.initialize(TEST_ACCOUNTS, done);
+  });
 
   describe("#request", function() {
 
     describe("eth_accounts", function() {
       it("should return list of addresses", function() {
         var accounts = web3.eth.accounts;
-
-        assert.deepEqual(accounts.length, 3);
+        assert.deepEqual(accounts.length, TEST_ACCOUNTS);
       });
     });
 
