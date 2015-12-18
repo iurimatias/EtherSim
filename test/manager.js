@@ -25,12 +25,12 @@ describe('fastrpc.manager', function() {
   describe("eth_blockNumber", function() {
     it("should return correct block number", function() {
       var number = web3.eth.blockNumber;
-      assert.deepEqual(number, 1);
+      assert.deepEqual(number, 0);
 
       manager.mine();
 
       var number = web3.eth.blockNumber;
-      assert.deepEqual(number, 2);
+      assert.deepEqual(number, 1);
     });
   });
 
@@ -110,10 +110,10 @@ describe('fastrpc.manager', function() {
   describe("eth_getBlockByNumber", function() {
     it("should return block given the block number", function() {
       block = manager.blockchain.blocks[0];
-      var blockHash = web3.eth.getBlock(1);
+      var blockHash = web3.eth.getBlock(0);
 
       resultHash = {
-        number: 1,
+        number: 0,
         hash: blockHash.hash,
         parentHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
         nonce: '0x0',
