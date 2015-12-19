@@ -10,7 +10,7 @@ describe('fastrpc.manager', function() {
   beforeEach(function(done) {
     manager = new Manager();
     web3.setProvider(new Provider(manager));
-    manager.initialize(TEST_ACCOUNTS, done);
+    manager.createAccounts(TEST_ACCOUNTS, done);
   });
 
   describe("#request", function() {
