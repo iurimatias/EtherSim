@@ -65,5 +65,8 @@ sim.manager.mine()
 // check new balances
 web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())})
 web3.eth.getBalance(web3.eth.accounts[1], function(err, balance) {console.log(balance.toNumber())})
+
+// start over
+sim.manager.reset()
 ```
 
