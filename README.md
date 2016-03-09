@@ -37,23 +37,17 @@ var web3 = new Web3();
 web3.setProvider(sim.provider);
 ```
 
-Usage
+Adding accounts
 
 ```Javascript
-web3.eth.accounts //=> []
-
-// create 10 accounts
 sim.createAccounts(10, function() {})
-
 web3.eth.accounts //=> [..10..accounts..]
+```
 
-// check balance
-web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())}) //=> 0
+Set Balance
 
-// set balance
+```Javascript
 sim.setBalance(web3.eth.accounts[0], 123450000, function() {})
-
-// check balance
 web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())}) //=> 123450000
 
 // send ether from one account to another
@@ -61,15 +55,22 @@ web3.eth.sendTransaction({value: 1000, from: web3.eth.accounts[0], to: web3.eth.
 
 // mine transaction
 sim.mine()
+```
 
-// check new balances
-web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())})
-web3.eth.getBalance(web3.eth.accounts[1], function(err, balance) {console.log(balance.toNumber())})
+Time Travel
 
-// start over
-sim.reset()
+```Javascript
+web3.eth.getBlock('latest') // => current time
 
-// jump ahead 5 hours
 sim.jump("5 hours")
+sim.mine();
+
+web3.eth.getBlock('latest') // => will be 5 hours ahead
+```
+
+Start Over
+
+```Javascript
+sim.reset()
 ```
 
