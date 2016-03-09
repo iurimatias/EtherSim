@@ -42,8 +42,8 @@ Usage
 ```Javascript
 web3.eth.accounts //=> []
 
-// create accounts
-sim.manager.createAccounts(10, function() {})
+// create 10 accounts
+sim.createAccounts(10, function() {})
 
 web3.eth.accounts //=> [..10..accounts..]
 
@@ -51,7 +51,7 @@ web3.eth.accounts //=> [..10..accounts..]
 web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())}) //=> 0
 
 // set balance
-sim.manager.ethersim_setBalance(web3.eth.accounts[0], 123450000, function() {})
+sim.setBalance(web3.eth.accounts[0], 123450000, function() {})
 
 // check balance
 web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())}) //=> 123450000
@@ -60,13 +60,16 @@ web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(ba
 web3.eth.sendTransaction({value: 1000, from: web3.eth.accounts[0], to: web3.eth.accounts[1], gasLimit: 10000},function() {console.log("transaction sent")})
 
 // mine transaction
-sim.manager.mine()
+sim.mine()
 
 // check new balances
 web3.eth.getBalance(web3.eth.accounts[0], function(err, balance) {console.log(balance.toNumber())})
 web3.eth.getBalance(web3.eth.accounts[1], function(err, balance) {console.log(balance.toNumber())})
 
 // start over
-sim.manager.reset()
+sim.reset()
+
+// jump ahead 5 hours
+sim.jump("5 hours")
 ```
 
