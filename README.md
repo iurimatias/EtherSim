@@ -1,6 +1,4 @@
 
-** This instructions apply to the develop branch only **
-
 What is EtherSim
 ======
 
