@@ -1,6 +1,6 @@
 {
   "name": "ethersim",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "bin": {
     "ethersim": "./bin/ethersim"
   },
@@ -12,6 +12,7 @@
     "async": "^1.5.0",
     "bignumber.js": "^2.1.4",
     "body-parser": "^1.13.2",
+    "datejs": "^1.0.0-rc3",
     "ethereumjs-account": "^2.0.2",
     "ethereumjs-block": "^1.2.2",
     "ethereumjs-tx": "^1.1.0",
