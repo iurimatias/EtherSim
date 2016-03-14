@@ -1,15 +1,15 @@
 var Blockchain = require('../lib/manager.js');
 var Provider = require('../lib/provider.js');
-var web3 = require('web3');
+var Web3 = require('web3');
 var assert = require('assert');
 
 describe('fastrpc.manager', function() {
   const TEST_ACCOUNTS = 10;
-  var block, contractAddress, manager;
+  var block, contractAddress, manager, web3;
 
   beforeEach(function(done) {
     manager = new Manager();
-    web3.setProvider(new Provider(manager));
+    web3 = new Web3(new Provider(manager));
     manager.createAccounts(TEST_ACCOUNTS, done);
   });
 

@@ -1,6 +1,6 @@
 {
   "name": "ethersim",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "bin": {
     "ethersim": "./bin/ethersim"
   },
@@ -9,20 +9,21 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "bignumber.js": "debris/bignumber.js#master",
-    "body-parser": "^1.13.2",
-    "request": "^2.60.0",
-    "http-proxy": "^1.12.0",
-    "ethereumjs-vm": "^1.0.2",
-    "ethereumjs-tx": "^0.6.9",
-    "ethereumjs-block": "^1.0.2",
-    "ethereumjs-account": "^1.0.4",
-    "ethereumjs-util": "^2.0.4",
-    "merkle-patricia-tree": "1.1.2",
-    "shelljs": "^0.5.0",
-    "jayson": "^1.2.1",
-    "web3": "^0.8.1",
     "async": "^1.5.0",
+    "bignumber.js": "^2.1.4",
+    "body-parser": "^1.13.2",
+    "datejs": "^1.0.0-rc3",
+    "ethereumjs-account": "^2.0.2",
+    "ethereumjs-block": "^1.2.2",
+    "ethereumjs-tx": "^1.1.0",
+    "ethereumjs-util": "^4.0.1",
+    "ethereumjs-vm": "^1.2.1",
+    "http-proxy": "^1.12.0",
+    "jayson": "^1.2.1",
+    "merkle-patricia-tree": "2.1.2",
+    "request": "^2.60.0",
+    "shelljs": "^0.6.0",
+    "web3": "^0.15.1",
     "yargs": "^3.29.0"
   },
   "devDependencies": {
