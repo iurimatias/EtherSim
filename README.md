@@ -1,10 +1,18 @@
+----
+## Warning: moved
+
+EtherSim has been adopted by [EthereumJS](https://github.com/ethereumjs/) and subsequently refactored to what is now known as [TestRPC](https://github.com/ethereumjs/testrpc)
+
+There is also a [fork](https://github.com/nexusdev/EtherSim) by the amazing guys at [NexusDev](https://github.com/nexusdev/) who did contribute upstream in a true open source spirit. However TestRPC is far better maintained these days and is recommended devs use it.
 
 What is EtherSim
 ======
 
 [![Join the chat at https://gitter.im/iurimatias/embark-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iurimatias/embark-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-EtherSim is a Limited Ethereum RPC simulator for testing and development purposes. EtherSim is used by the [Embark Framework](https://github.com/iurimatias/embark-framework)
+EtherSim is a Limited Ethereum RPC simulator for testing and development purposes. EtherSim is used by the [Embark Framework](https://github.com/iurimatias/embark-framework) 1.x series
+
+**warning**
 
 Installation
 ======
