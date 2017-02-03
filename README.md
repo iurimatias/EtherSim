@@ -3,7 +3,7 @@
 
 EtherSim has been adopted by [EthereumJS](https://github.com/ethereumjs/) and subsequently refactored to what is now known as [TestRPC](https://github.com/ethereumjs/testrpc)
 
-There is also a [fork](https://github.com/nexusdev/EtherSim) by the amazing guys at [NexusDev](https://github.com/nexusdev/) who did contribute upstream in a true open source spirit. However TestRPC is far better maintained these days and is recommended devs use it.
+There is also a [fork](https://github.com/nexusdev/EtherSim) by the amazing guys at [NexusDev](https://github.com/nexusdev/) who did contribute upstream in a true open source spirit. However TestRPC is far better maintained these days and it's recommended devs use it.
 
 What is EtherSim
 ======
